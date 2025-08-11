@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 12:19:00 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/11 14:52:21 by iaratang         ###   ########.fr       */
+/*   Created: 2025/08/11 13:39:12 by iaratang          #+#    #+#             */
+/*   Updated: 2025/08/11 14:20:25 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "printf.h"
 
-#include <unistd.h>
-#include <stdarg.h>
+int	ft_print_str(char *str)
+{
+	int	i;
 
-int	ft_strchr(char c, char *set);
-int	ft_printf(const char *format, ...);
-int	ft_print_str(char *str);
-int	ft_print_char(char c);
-
-
-#endif
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
