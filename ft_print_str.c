@@ -6,11 +6,11 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:39:12 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/11 14:20:25 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:03:18 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_str(char *str)
 {

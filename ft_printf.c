@@ -6,11 +6,11 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 12:29:51 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/11 15:01:42 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/08/12 17:06:40 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	print_params(const char format_specifier, va_list args);
 
@@ -47,12 +47,17 @@ static int	print_params(const char format_specifier, va_list args)
 		return (ft_print_char(va_arg(args, int)));
 	else if (format_specifier == 's')
 		return (ft_print_str(va_arg(args, char *)));
-
+	else if (format_specifier == 'i' || format_specifier == 'd')
+		return (ft_print_number(va_arg(args, int)));
+	else if (format_specifier == 'u')
+		return (ft_print_unsigned(va_arg(args, unsigned int)));
+	else if (format_specifier == 'x')
+		return (ft_print_hex(va_arg(args, unsigned int), 0));
+	else if (format_specifier == 'X')
+		return (ft_print_hex(va_arg(args, unsigned int), 1));
+	else if (format_specifier == 'p')
+		return (ft_print_pointer(va_arg(args, void *)));
 	return (0);
 }
 
-int	main(void)
-{
-	ft_printf("ola meu nome é %%%s, tenho 23 anos", "ian");
-}
 

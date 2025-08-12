@@ -6,24 +6,29 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:48:18 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/11 15:01:42 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:03:08 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_print_hex(int n)
+int	ft_print_hex(unsigned int n, int lcase)
 {
-	int			i;
-	const char *hex_num;
-	long 		num;
+	int	i;
 
 	i = 0;
-	num = n;
-	hex_num = "0123456789abcdef";
-
-	while (num != 0)
+	if (n >= 16)
 	{
-
+		i+= ft_print_hex(n / 16, lcase);
 	}
+	if (lcase == 0)
+	{
+		write(1, &"0123456789abcdef"[n % 16], 1);
+	}
+	else
+	{
+		write(1, &"0123456789ABCDEF"[n % 16], 1);
+	}
+	i++;
+	return (i);
 }

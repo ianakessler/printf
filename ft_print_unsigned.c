@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 13:15:09 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/12 16:03:31 by iaratang         ###   ########.fr       */
+/*   Created: 2025/08/12 16:09:00 by iaratang          #+#    #+#             */
+/*   Updated: 2025/08/12 16:28:26 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strchr(char c, char *set)
+int	ft_print_unsigned(unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (set[i])
+	if (n >= 10)
 	{
-		if (set[i] == c)
-			return (1);
-		i++;
+		i += ft_print_unsigned(n / 10);
 	}
-	if (set[i] == c)
-		return (1);
-	return (0);
+	write(1, &"0123456789"[n % 10], 1);
+	i++;
+	return (i);
 }
+
